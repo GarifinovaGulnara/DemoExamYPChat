@@ -1,0 +1,34 @@
+﻿<Page x:Class="DemoExamYPChat.View.ListChatsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DemoExamYPChat.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ListChatsPage">
+
+    <Grid>
+        <StackPanel Orientation="Horizontal" Margin="20">
+            <TextBlock Text="Hello," FontSize="24"/>
+            <TextBlock x:Name="NameUserTB" FontSize="24"/>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" Height="300" Margin="30">
+            <TextBlock Text="Your open chatrooms"/>
+            <ListView x:Name="ListChats" SelectionChanged="ListChats_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Chatroom.Topic}" HorizontalAlignment="Left"/>
+                            <TextBlock Text="{Binding ChatMessage.Date}" Margin="20,0"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="500"  Margin="30">
+            <Button x:Name="EmpFinderBtn" Content="Employee Finder" Height="30" Width="120" Click="EmpFinderBtn_Click"/>
+            <Button x:Name="CloseAppBtn" Content="Close Application" Height="30" Margin="250,0,0,0" Width="120" Click="CloseAppBtn_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>
